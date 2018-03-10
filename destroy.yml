@@ -1,0 +1,5 @@
+---
+- name: Destroy resource group
+  hosts: localhost
+  roles:
+    - destroy_resource_group

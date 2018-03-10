@@ -1,0 +1,6 @@
+---
+- name: Create a resource group
+  azure_rm_resourcegroup:
+    name: '{{ azure_ci_resource_group }}'
+    location: '{{ azure_ci_location }}'
+    state: present

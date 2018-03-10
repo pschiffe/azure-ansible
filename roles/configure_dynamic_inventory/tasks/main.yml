@@ -1,0 +1,5 @@
+---
+- name: Configure dynamic inventory
+  template:
+    src: azure_rm.ini.j2
+    dest: '{{ playbook_dir }}/inventory/azure/azure_rm.ini'

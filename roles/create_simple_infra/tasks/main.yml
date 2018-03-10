@@ -1,0 +1,25 @@
+---
+- name: Create Azure deployment
+  azure_rm_deployment:
+    resource_group_name: '{{ azure_ci_resource_group }}'
+    location: '{{ azure_ci_location }}'
+    template_link: https://github.com/jim-minter/azure/raw/master/azuredeploy.json
+    parameters:
+      location:
+        value: '{{ azure_ci_location }}'
+      virtualMachineSize:
+        value: Standard_DS1_v2
+      imageResourceGroup:
+        value: kwoodsontest
+      imageName:
+        value: rhel7.4_base
+      adminPublicKey:
+        value: '{{ azure_ci_ssh_pubkey }}'
+    state: present
+
+- meta: refresh_inventory
+
+- name: Wait for SSH
+  wait_for_connection:
+  delegate_to: '{{ item }}'
+  with_items: '{{ groups["azure"] }}'

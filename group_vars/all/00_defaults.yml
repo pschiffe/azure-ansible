@@ -1,0 +1,8 @@
+---
+azure_ci_location: eastus
+
+# Variables that need to be defined:
+#
+# azure_ci_resource_group
+# azure_ci_ssh_privkey_path
+# azure_ci_ssh_pubkey

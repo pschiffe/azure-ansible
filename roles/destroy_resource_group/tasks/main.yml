@@ -1,0 +1,6 @@
+---
+- name: Destroy a resource group
+  azure_rm_resourcegroup:
+    name: '{{ azure_ci_resource_group }}'
+    force: true
+    state: absent
